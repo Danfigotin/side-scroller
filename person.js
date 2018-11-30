@@ -2,15 +2,14 @@
 // https://www.kadenze.com/courses/the-nature-of-code
 // http://natureofcode.com/
 // Session 2: Array of Particles, multiple forces
-
-function Person () {
+function Person() {
   this.pos = createVector(50, height);
-  this.vel = createVector(5, 0);
+  this.vel = createVector(1, 0);
   this.acc = createVector(0, 0);
   
-
   this.applyForce = function(force) {
-   
+    var f = force.copy();
+    f.div(this.mass);
     this.acc.add(f);
   }
 
@@ -21,9 +20,9 @@ function Person () {
   }
 
   this.display = function() {
-    fill(255, 150);
+    fill(255);
     stroke(255);
-    rect(this.pos.x, this.pos.y-50,20,50);
+    rect(this.pos.x,this.pos.y-50,20,50);
   }
 
   this.edges = function() {
@@ -38,6 +37,3 @@ function Person () {
     }
   }
 }
-
-Person.update();
-Person.display();
