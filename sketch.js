@@ -9,12 +9,33 @@ function setup() {
   
 }
 
+
+function keyPressed() {
+
+  if (key == ' '); {
+  
+    var jump = createVector(0, -2);
+    person.applyForce (jump);
+
+
+  }
+
+}
 function draw() {
-  background(51);
- person.update();
- person.display();
+ background(51);
+ 
+  var gravity = createVector(0, 0.1);
+  person.applyForce(gravity);
+  
+  
+  
+  translate(-person.pos.x + 50, 0);
+  
+    person.update();
+    person.edges();
+    person.display();
   
   
   fill(124,124,124,124);
-  rect(400,height-50,50,50);
-  }
+  rect(400, height-50, 50, 50);
+}
