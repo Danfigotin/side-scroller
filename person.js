@@ -8,9 +8,8 @@ function Person() {
   this.acc = createVector(0, 0);
 
   this.applyForce = function(force) {
-    var f = force.copy();
-    f.div(this.mass);
-    this.acc.add(f);
+    
+    this.acc.add(force);
   }
 
   this.update = function() {
